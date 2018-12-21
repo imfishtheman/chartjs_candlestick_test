@@ -33,12 +33,12 @@
                 
                 <script>
                         var data = getRandomData('December 01 2017', 40);
-                
+                        var chart;
                         // Candlestick
                         var ctx = document.getElementById("chart1").getContext("2d");
                         ctx.canvas.width = 500;
                         ctx.canvas.height = 200;
-                        new Chart(ctx, {
+                        chart=new Chart(ctx, {
                             type: 'candlestick',
                             data: {
                                 datasets: [{
@@ -55,6 +55,22 @@
                             },
                         });
                 
+
+            var ex =   document.querySelectorAll(".intervalBtn");
+            console.log(ex)
+            document.querySelectorAll(".intervalBtn").forEach((el)=>{
+                console.log("HAHA")
+                el.addEventListener('click', function() {
+			    console.log("Interval Button clicked: " + el.innerHTML);
+			    var zero = Math.random() < 0.2 ? true : false;
+		    	chart.data.datasets = [{
+                                    label: "CHRT - Chart.js Corporation",
+                                    data: getRandomData('December 01 2017', 40),
+                                    fractionalDigitsCount: 2,
+                                }];
+			chart.update();
+		})
+        })
                         </script>
                 
     
