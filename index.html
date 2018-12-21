@@ -52,6 +52,12 @@
                                     position: 'nearest',
                                     mode: 'index',
                                 },
+                                onHover: (el,arr)=>{
+                                    if (arr.length===1){
+                                    console.log("element on hovered called")
+                                    console.log("index : "+arr[0]._index)
+                                    }
+                                }
                             },
                         });
                 
