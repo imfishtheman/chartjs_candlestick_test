@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Candlestick Demo</title>
+
+    <script src="js/moment.js" type="text/javascript"></script>
+	<script src="js/Chart.js" type="text/javascript"></script>
+    <script src="js/Chart.Financial.js" type="text/javascript"></script>
+	<script src="js/utils.js" type="text/javascript"></script>
+	
+</head>
+<body>
+
+    <style>
+    #container{ border: 1px dotted black; position: relative; width: 75%}
+    #infobar{position:absolute; left:10px; top:10px;}
+    </style>
+    <div id="container">
+    	<div class="content">
+                <h2>Candlestick</h2>
+                <div style="width:100%">
+                    <canvas id="chart1" height="500px"></canvas>
+                </div>
+                <div id="infobar">
+                    <button class="intervalBtn">int1</button>
+                    <button class="intervalBtn">int2</button>
+                    <button class="intervalBtn">int3</button>
+                </div>
+            </div>
+                
+                <script>
+                        var data = getRandomData('December 01 2017', 40);
+                
+                        // Candlestick
+                        var ctx = document.getElementById("chart1").getContext("2d");
+                        ctx.canvas.width = 500;
+                        ctx.canvas.height = 200;
+                        new Chart(ctx, {
+                            type: 'candlestick',
+                            data: {
+                                datasets: [{
+                                    label: "CHRT - Chart.js Corporation",
+                                    data: data,
+                                    fractionalDigitsCount: 2,
+                                }]
+                            },
+                            options: {
+                                tooltips: {
+                                    position: 'nearest',
+                                    mode: 'index',
+                                },
+                            },
+                        });
+                
+                        </script>
+                
+    
+</body>
+</html>
