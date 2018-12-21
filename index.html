@@ -32,7 +32,7 @@
             </div>
                 
                 <script>
-                        var data = getRandomData('December 01 2017', 40);
+                        var data = getRandomData('December 01 2016', 40);
                         var chart;
                         // Candlestick
                         var ctx = document.getElementById("chart1").getContext("2d");
@@ -47,7 +47,14 @@
                                     fractionalDigitsCount: 2,
                                 }]
                             },
+                            
                             options: {
+                                title: {
+                                    display: false,
+                                    position: 'bottom',
+                                    text: 'BLAH'
+                                
+                                },
                                 tooltips: {
                                     position: 'nearest',
                                     mode: 'index',
@@ -57,7 +64,20 @@
                                     console.log("element on hovered called")
                                     console.log("index : "+arr[0]._index)
                                     }
-                                }
+                                },
+                                layout: {
+                                     padding: {
+                                        left: 0,
+                                        right: 0,
+                                        top: 0,
+                                        bottom: 0
+                                    }
+                                 },
+                                 scales:{
+                                    yAxes: [{
+                                     position: 'right'
+                                    }]
+                                }  
                             },
                         });
                 
@@ -65,17 +85,16 @@
             var ex =   document.querySelectorAll(".intervalBtn");
             console.log(ex)
             document.querySelectorAll(".intervalBtn").forEach((el)=>{
-                console.log("HAHA")
                 el.addEventListener('click', function() {
-			    console.log("Interval Button clicked: " + el.innerHTML);
-			    var zero = Math.random() < 0.2 ? true : false;
-		    	chart.data.datasets = [{
-                                    label: "CHRT - Chart.js Corporation",
+			        console.log("Interval Button clicked: " + el.innerHTML);
+			        //var zero = Math.random() < 0.2 ? true : false;
+		    	    chart.data.datasets = [{
+                                    //label: "CHRT - Chart.js Corporation",
                                     data: getRandomData('December 01 2017', 40),
                                     fractionalDigitsCount: 2,
                                 }];
-			chart.update();
-		})
+			        chart.update();
+	    	})
         })
                         </script>
                 
